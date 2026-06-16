@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.speedX = Math.random() * 0.2 - 0.1;
                 this.speedY = Math.random() * 0.35 + 0.05; // Sobe lentamente
                 this.opacity = Math.random() * 0.3 + 0.1;
-                this.color = Math.random() > 0.5 ? '#c8a24a' : '#1e3a8a'; // Dourado ou azul
+                this.color = Math.random() > 0.5 ? '#ffffff' : '#00d2ff'; // Branco ou ciano
             }
 
             update() {

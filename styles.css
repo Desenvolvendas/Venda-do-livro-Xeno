@@ -4,18 +4,14 @@
    ========================================================================== */
 
 :root {
-    --color-bg: #050505;
-    --color-text-light: #f5f5f5;
-    --color-text-muted: #a0a0a0;
+    --color-bg: #01070d; /* Fundo azul-escuro-quase-preto correspondente à imagem */
+    --color-bg-green: #01140e; /* Verde escuro correspondente à imagem */
+    --color-text-light: #ffffff;
+    --color-text-muted: #8b9bb4; /* Muted ciano/cinza correspondente à imagem */
+    --color-cyan: #00d2ff; /* Ciano brilhante da imagem */
+    --color-cyan-glow: rgba(0, 210, 255, 0.4);
     --color-gold: #c8a24a;
     --color-gold-glow: rgba(200, 162, 74, 0.25);
-    
-    /* Neon Deck Column Border Glows */
-    --glow-livro: rgba(200, 162, 74, 0.4);
-    --glow-palestrante: rgba(139, 92, 246, 0.4);
-    --glow-xeno: rgba(59, 130, 246, 0.4);
-    --glow-mentoria: rgba(16, 185, 129, 0.4);
-    --glow-whatsapp: rgba(34, 197, 94, 0.4);
     
     --font-sans: 'Inter', sans-serif;
     --font-heading: 'Outfit', sans-serif;
@@ -51,6 +47,7 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     line-height: 1.6;
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-green) 100%);
 }
 
 /* Scrollbar Customizada */
@@ -104,7 +101,7 @@ body {
 .orb-primary {
     width: 45vw;
     height: 45vw;
-    background: radial-gradient(circle, var(--color-gold) 0%, transparent 80%);
+    background: radial-gradient(circle, var(--color-cyan) 0%, transparent 80%);
     top: -10%;
     left: -5%;
 }
@@ -112,7 +109,7 @@ body {
 .orb-secondary {
     width: 40vw;
     height: 40vw;
-    background: radial-gradient(circle, #0f375a 0%, transparent 80%);
+    background: radial-gradient(circle, #02233c 0%, transparent 80%);
     bottom: -10%;
     right: -5%;
     animation-delay: -5s;
@@ -121,7 +118,7 @@ body {
 .orb-tertiary {
     width: 35vw;
     height: 35vw;
-    background: radial-gradient(circle, #3b82f6 0%, transparent 80%);
+    background: radial-gradient(circle, #023820 0%, transparent 80%);
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -180,21 +177,21 @@ body {
 
 .profile-photo-wrapper .glow-orb {
     position: absolute;
-    inset: -6px;
-    background: linear-gradient(135deg, var(--color-gold) 0%, #0f375a 100%);
-    border-radius: 50%;
-    filter: blur(8px);
-    opacity: 0.7;
-    animation: rotateGlow 8s linear infinite;
+    inset: -4px;
+    background: rgba(0, 210, 255, 0.4);
+    border-radius: 28%;
+    filter: blur(6px);
+    opacity: 0.6;
 }
 
 .profile-frame {
     position: relative;
     width: 100%;
     height: 100%;
-    border-radius: 50%;
+    border-radius: 28%;
     overflow: hidden;
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(0, 210, 255, 0.3);
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.1);
 }
 
 .profile-photo {
@@ -215,7 +212,7 @@ body {
     font-weight: 900;
     font-size: 2.2rem;
     letter-spacing: 0.05em;
-    background: linear-gradient(135deg, #ffffff 50%, var(--color-gold) 100%);
+    background: linear-gradient(135deg, #ffffff 50%, var(--color-cyan) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -225,7 +222,7 @@ body {
     font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 0.2em;
-    color: var(--color-gold);
+    color: var(--color-cyan);
 }
 
 .profile-desc {
@@ -235,71 +232,66 @@ body {
     line-height: 1.5;
 }
 
-@keyframes rotateGlow {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
 /* ==========================================================================
    NEON DECK NAVIGATION
    ========================================================================== */
 .neon-deck {
     display: flex;
-    gap: 16px;
+    justify-content: center;
+    gap: 24px;
     width: 100%;
+    margin: 20px auto;
 }
 
 .neon-column {
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    padding: 24px 16px;
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.04);
-    border-radius: var(--radius-md);
+    gap: 12px;
     text-decoration: none;
     color: var(--color-text-light);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-    transition: transform var(--duration-normal) var(--transition-smooth),
-                border-color var(--duration-normal) var(--transition-smooth),
-                box-shadow var(--duration-normal) var(--transition-smooth);
-}
-
-.neon-icon-wrapper {
-    width: 54px;
-    height: 54px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 12px;
     transition: transform var(--duration-normal) var(--transition-smooth);
 }
 
-.neon-icon-svg {
-    width: 32px;
-    height: 32px;
-    color: var(--color-text-muted);
-    transition: color var(--duration-normal) ease;
+.neon-card {
+    width: 72px;
+    height: 72px;
+    border-radius: 22px; /* Geometria squircle */
+    background: rgba(1, 12, 20, 0.45);
+    border: 1.2px solid rgba(0, 210, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    transition: border-color var(--duration-normal) var(--transition-smooth),
+                box-shadow var(--duration-normal) var(--transition-smooth),
+                background-color var(--duration-normal) var(--transition-smooth),
+                transform var(--duration-normal) var(--transition-smooth);
 }
 
-/* Make icons light up with their respective column color on hover */
-.neon-column:nth-child(1):hover .neon-icon-svg { color: var(--color-gold); }
-.neon-column:nth-child(2):hover .neon-icon-svg { color: #8b5cf6; } /* purple */
-.neon-column:nth-child(3):hover .neon-icon-svg { color: #3b82f6; } /* blue */
-.neon-column:nth-child(4):hover .neon-icon-svg { color: #10b981; } /* emerald */
-.neon-column:nth-child(5):hover .neon-icon-svg { color: #22c55e; } /* green */
+.neon-icon-svg {
+    width: 30px;
+    height: 30px;
+    color: var(--color-cyan);
+    filter: drop-shadow(0 0 2px rgba(0, 210, 255, 0.3));
+    transition: color var(--duration-normal) ease, filter var(--duration-normal) ease;
+}
 
+.neon-label-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
-.neon-column .horizontal-text {
+.neon-label {
     font-family: var(--font-heading);
     font-weight: 700;
-    font-size: 0.85rem;
-    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
     text-align: center;
+    color: #ffffff;
 }
 
 .neon-column .mobile-subtitle,
@@ -307,40 +299,26 @@ body {
     display: none; /* Ocultados no desktop */
 }
 
-/* Hover e Efeitos de Brilho Dinâmicos por Coluna */
+/* Hover e Efeitos de Brilho Dinâmicos */
 .neon-column:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
 }
 
-.neon-column:nth-child(1):hover {
-    border-color: var(--glow-livro);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--glow-livro);
-}
-.neon-column:nth-child(2):hover {
-    border-color: var(--glow-palestrante);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--glow-palestrante);
-}
-.neon-column:nth-child(3):hover {
-    border-color: var(--glow-xeno);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--glow-xeno);
-}
-.neon-column:nth-child(4):hover {
-    border-color: var(--glow-mentoria);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--glow-mentoria);
-}
-.neon-column:nth-child(5):hover {
-    border-color: var(--glow-whatsapp);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--glow-whatsapp);
+.neon-column:hover .neon-card {
+    border-color: var(--color-cyan);
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.55), inset 0 0 6px rgba(0, 210, 255, 0.25);
+    background-color: rgba(0, 210, 255, 0.04);
 }
 
-.neon-column:hover .neon-icon-wrapper {
-    transform: scale(1.1);
+.neon-column:hover .neon-icon-svg {
+    color: #ffffff;
+    filter: drop-shadow(0 0 4px rgba(0, 210, 255, 0.8));
 }
 
 /* Destaque na coluna do Livro */
-.highlight-column {
-    background: rgba(200, 162, 74, 0.05);
-    border-color: rgba(200, 162, 74, 0.15);
+.highlight-column .neon-card {
+    background: rgba(0, 210, 255, 0.05);
+    border-color: rgba(0, 210, 255, 0.45);
 }
 
 /* ==========================================================================
@@ -349,7 +327,7 @@ body {
 .section-divider {
     height: 1px;
     width: 100%;
-    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%);
+    background: linear-gradient(90deg, transparent 0%, rgba(0, 210, 255, 0.08) 50%, transparent 100%);
     margin: 40px 0;
 }
 
@@ -974,22 +952,28 @@ body {
         width: 100%;
     }
 
-    .neon-icon-wrapper {
-        width: 38px;
-        height: 38px;
-        margin-bottom: 0;
+    .neon-card {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
         margin-right: 16px;
     }
 
     .neon-icon-svg {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
     }
 
-    /* Layout do texto do item do Deck */
-    .neon-column .horizontal-text {
+    .neon-label-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .neon-label {
         text-align: left;
         font-size: 0.95rem;
+        letter-spacing: normal;
     }
     
     .neon-column .mobile-subtitle {
@@ -1000,14 +984,8 @@ body {
         margin-top: 2px;
     }
 
-    /* Agrupador de Textos */
     .neon-column {
         position: relative;
-    }
-    
-    .neon-column > div:not(.neon-icon-wrapper):not(.mobile-arrow) {
-        display: flex;
-        flex-direction: column;
     }
 
     .neon-column .mobile-arrow {
