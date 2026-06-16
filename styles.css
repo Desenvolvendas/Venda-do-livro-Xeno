@@ -171,8 +171,8 @@ body {
 
 .profile-photo-wrapper {
     position: relative;
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
 }
 
 .profile-photo-wrapper .glow-orb {
@@ -240,6 +240,7 @@ body {
     justify-content: center;
     gap: 24px;
     width: 100%;
+    max-width: 480px;
     margin: 20px auto;
 }
 
@@ -272,8 +273,8 @@ body {
 }
 
 .neon-icon-svg {
-    width: 30px;
-    height: 30px;
+    width: 34px;
+    height: 34px;
     color: var(--color-cyan);
     filter: drop-shadow(0 0 2px rgba(0, 210, 255, 0.3));
     transition: color var(--duration-normal) ease, filter var(--duration-normal) ease;
