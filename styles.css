@@ -572,16 +572,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 18px;
-    background: linear-gradient(135deg, var(--color-gold) 0%, #9e7d30 100%);
+    padding: 13px 28px;
+    background: linear-gradient(135deg, var(--color-gold) 0%, #a48135 100%);
     color: #000;
     font-family: var(--font-heading);
     font-weight: 800;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     letter-spacing: 0.05em;
     text-decoration: none;
-    border-radius: var(--radius-sm);
-    box-shadow: 0 10px 25px rgba(200, 162, 74, 0.15);
+    border-radius: 30px;
+    box-shadow: 0 4px 15px rgba(200, 162, 74, 0.12);
     position: relative;
     overflow: hidden;
     transition: transform var(--duration-normal) var(--transition-smooth),
@@ -590,7 +590,7 @@ body {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(200, 162, 74, 0.3);
+    box-shadow: 0 6px 20px rgba(200, 162, 74, 0.25);
 }
 
 .btn-primary .btn-glow {
@@ -1326,49 +1326,27 @@ body {
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(200, 162, 74, 0.03);
 }
 
-.badge-discount {
-    align-self: center;
-    background: rgba(239, 68, 68, 0.08);
-    border: 1px solid rgba(239, 68, 68, 0.3);
-    color: #ef4444;
-    padding: 8px 18px;
-    border-radius: var(--radius-sm);
-    font-family: var(--font-heading);
-    font-size: 0.85rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-}
-
-.price-container {
+.price-container-minimal {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
     margin: 10px 0;
-    flex-wrap: wrap;
 }
 
-.old-price {
-    font-size: 1.3rem;
+.price-label {
+    font-size: 0.95rem;
     color: var(--color-text-muted);
-    text-decoration: line-through;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
 }
 
-.arrow-price {
-    font-size: 1.2rem;
-    color: var(--color-text-muted);
-}
-
-.new-price {
+.price-val-minimal {
     font-family: var(--font-heading);
-    font-size: 1.4rem;
-    color: #ffffff;
-}
-
-.price-val {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    font-weight: 900;
     color: var(--color-gold);
-    text-shadow: 0 0 15px rgba(200, 162, 74, 0.2);
+    text-shadow: 0 0 20px rgba(200, 162, 74, 0.25);
 }
 
 .offer-pitch {
@@ -1429,44 +1407,6 @@ body {
 
 .green-check {
     flex-shrink: 0;
-}
-
-.attention-box {
-    display: flex;
-    gap: 20px;
-    background: rgba(239, 68, 68, 0.03);
-    border: 1px solid rgba(239, 68, 68, 0.15);
-    padding: 24px;
-    border-radius: var(--radius-sm);
-    max-width: 680px;
-    margin: 0 auto;
-    width: 100%;
-    align-items: flex-start;
-}
-
-.warning-emoji {
-    font-size: 1.5rem;
-    line-height: 1.2;
-}
-
-.attention-content {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.attention-content strong {
-    font-family: var(--font-heading);
-    color: #ef4444;
-    font-size: 1rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.attention-content p {
-    font-size: 0.9rem;
-    color: var(--color-text-muted);
-    line-height: 1.5;
 }
 
 .checkout-actions {
@@ -1540,11 +1480,14 @@ body {
 /* ==========================================================================
    SCROLL REVEAL E ANIMAÇÕES
    ========================================================================== */
+/* ==========================================================================
+   SCROLL REVEAL E ANIMAÇÕES LEVES
+   ========================================================================== */
 .scroll-reveal {
     opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s var(--transition-smooth),
-                transform 1s var(--transition-smooth);
+    transform: translateY(12px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .scroll-reveal.reveal-active {
@@ -1652,7 +1595,6 @@ body {
 
     /* Grids secundárias */
     .benefits-grid,
-    .cases-grid,
     .behind-signals-grid,
     .questions-grid,
     .learn-grid,
@@ -1663,7 +1605,6 @@ body {
     }
 
     .benefit-card,
-    .case-card,
     .behind-grid-container,
     .reading-card,
     .target-card,
@@ -1695,12 +1636,11 @@ body {
     }
 
     /* Pricing sizes for mobile */
-    .price-val {
-        font-size: 2.1rem;
+    .price-val-minimal {
+        font-size: 2.4rem;
     }
 
-    .whats-included,
-    .attention-box {
+    .whats-included {
         padding: 20px 16px;
     }
 }
